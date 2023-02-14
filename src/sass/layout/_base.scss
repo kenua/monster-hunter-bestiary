@@ -1,0 +1,57 @@
+@use '../modules/variables';
+@use '../modules/mixins';
+
+body {
+   background-color: variables.$light-blue;
+   background-image: url("../assets/images/bgi.jpg");
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   box-shadow: 0 0 210px black inset;
+   color: white;
+   font-size: 1.6rem;
+   font-family: "Fira Code", 'Courier New', Courier, monospace;
+   font-weight: normal;
+   min-height: 100vh;
+}
+.lines-pattern {
+   background-color: #00000000;
+   background-image: url("../assets/images/Square-pattern-blue.png"), 
+                     url("../assets/images/Square-pattern-blue.png");
+   background-position: 0px 27px, 
+                        0px calc(100% - 27px);
+   background-size: 25px 16.6px,
+                    25px 16.6px;
+   background-repeat: repeat-x, 
+                      repeat-x;
+   min-height: 100vh;
+
+   @include mixins.desktop-view {
+      background-image: url("../assets/images/Square-pattern-blue.png"), 
+                        url("../assets/images/Square-pattern-blue--90deg.png"), 
+                        url("../assets/images/Square-pattern-blue--90deg.png"),
+                        url("../assets/images/Square-pattern-blue.png");
+      background-position: 0px 27px, 
+                           48px 0px,
+                           calc(100% - 48px) 0px,
+                           0px calc(100% - 27px);
+      background-size: 25px 16.6px, 
+                       16.6px 25px, 
+                       16.6px 25px, 
+                       25px 16.6px;
+      background-repeat: repeat-x, 
+                         repeat-y,
+                         repeat-y, 
+                         repeat-x;
+   }
+}
+.wrapper {
+   padding: 80px 20px;
+
+   @include mixins.desktop-view {
+      width: 1024px;
+      padding: 80px 0;
+      margin: 0 auto;
+   }
+}

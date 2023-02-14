@@ -1,0 +1,22 @@
+@use '../modules/mixins';
+
+.logo {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+
+   &__img {
+      width: 273px;
+      display: block;
+      margin-top: -109px;
+   }
+
+   @include mixins.desktop-view {
+      &__img {
+         width: 477px;
+         margin-top: -71px;
+      }
+   }
+}

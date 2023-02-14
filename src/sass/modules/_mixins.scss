@@ -1,0 +1,7 @@
+@use './variables';
+
+@mixin desktop-view {
+   @media screen and (min-width: variables.$desktop-screen-size) {
+      @content;
+   }
+}
