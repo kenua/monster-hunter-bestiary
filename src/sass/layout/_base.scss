@@ -55,3 +55,21 @@ body {
       margin: 0 auto;
    }
 }
+.button-frame {
+   clip-path: polygon(0px 10px, 10px 10px, 10px 0px, calc(100% - 10px) 0px, calc(100% - 10px) 10px, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 10px calc(100% - 10px), 0px calc(100% - 10px));
+}
+.button-frame-content {
+   text-transform: capitalize;;
+   text-align: center;
+   background-color: variables.$black;
+   padding: 8px;
+   clip-path: polygon(0px 10px, 10px 10px, 10px 0px, calc(100% - 10px) 0px, calc(100% - 10px) 10px, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 10px calc(100% - 10px), 0px calc(100% - 10px));
+}
+.frame--black {
+   background-color: black;
+   padding: 3px;
+}
+.frame--white {
+   background-color: white;
+   padding: 3px;
+}
