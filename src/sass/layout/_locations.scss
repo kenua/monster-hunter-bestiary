@@ -1,18 +1,18 @@
 @use '../modules/variables';
 @use '../modules/mixins';
 
-.areas {
+.locations {
    .section-heading {
       margin-bottom: 80px;
    }
 }
-.areas-list {
+.locations-list {
    @include mixins.desktop-view {
       display: grid;
       grid-template-columns: repeat(8, 1fr);
    }
 }
-.area-item {
+.location-item {
    color: white;
    text-decoration: none;
    width: 222px;
