@@ -5,3 +5,9 @@
       @content;
    }
 }
+
+@mixin tablet-view {
+   @media screen and (min-width: variables.$tablet-screen-size) {
+      @content;
+   }
+}

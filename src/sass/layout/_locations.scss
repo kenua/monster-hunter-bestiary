@@ -7,8 +7,14 @@
    }
 }
 .locations-list {
-   @include mixins.desktop-view {
+   @include mixins.tablet-view {
       display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      row-gap: 48px;
+      justify-items: center;
+   }
+
+   @include mixins.desktop-view {
       grid-template-columns: repeat(8, 1fr);
    }
 }
@@ -51,6 +57,35 @@
    }
    &__button {
       margin-top: -27.5px;
+   }
+
+   @include mixins.tablet-view {
+      margin: 0;
+
+      &:nth-child(1) {
+         grid-column: 1 / 4;
+         grid-row: 1;
+      }
+
+      &:nth-child(2) {
+         grid-column: 4 / 7;
+         grid-row: 1;
+      }
+
+      &:nth-child(3) {
+         grid-column: 1 / 7;
+         grid-row: 2;
+      }
+
+      &:nth-child(4) {
+         grid-column: 1 / 4;
+         grid-row: 3;
+      }
+
+      &:nth-child(5) {
+         grid-column: 4 / 7;
+         grid-row: 3;
+      }
    }
 
    @include mixins.desktop-view {
