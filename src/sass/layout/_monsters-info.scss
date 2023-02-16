@@ -1,0 +1,107 @@
+@use '../modules/variables';
+
+.monsters-info {
+   &__content {
+      display: flex;
+      overflow-x: hidden;
+   }
+   &__item {
+      width: 100%;
+      flex-shrink: 0;
+   }
+   &__list {
+      transition: margin 300ms ease-in-out;
+   }
+   &__list--hidden {
+      margin-left: -100%;
+   }
+}
+.monsters-info-button {
+   font-size: 1.6rem;
+   font-family: "Fira Code", 'Courier New', Courier, monospace;
+   font-weight: normal;
+   color: white;
+   background-color: #00000000;
+   width: 100%;
+   display: block;
+   border: none;
+   font-size: 20px;
+   padding: 0;
+   cursor: pointer;
+
+   &:hover {
+      color: variables.$yellow;
+   }
+   &:hover .frame--white {
+      background-color: variables.$yellow;
+   }
+   &:hover &__diamond {
+      border-color: variables.$yellow;
+      transform: translateY(-50%) rotate(0deg);
+   }
+   .button-frame {
+      display: block;
+   }
+   .button-frame-content {
+      display: block;
+      position: relative;
+   }
+   &__diamond {
+      background-color: #00000000;
+      width: 10px;
+      height: 10px;
+      border: 3px solid white;
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%) rotate(45deg);
+      transition: transform 200ms ease-in-out;
+   }
+}
+.monsters-info-button--selected {
+   color: variables.$yellow;
+
+   .frame--white {
+      background-color: variables.$yellow;
+   }
+   .monsters-info-button__diamond {
+      border-color: variables.$yellow;
+      transform: translateY(-50%) rotate(0deg);
+   }
+}
+.monster-image {
+   width: 150px;
+   margin: 0 auto 17px;
+
+   &__img {
+      width: 64px;
+      height: 64px;
+   }
+   .box-frame__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 150px;
+   }
+}
+.monster-desc {
+   p {
+      line-height: 30px;
+   }
+   &__table {
+      text-align: left;
+      max-width: 275px;
+      margin-top: 30px;
+      line-height: 21px;
+   }
+   &__row {
+      border: 1px solid white;
+   }
+   &__th {
+      border-right: 1px solid white;
+   }
+   &__th, &__td {
+      padding:  8px;
+   }
+}
