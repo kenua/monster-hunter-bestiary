@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use '../modules/variables';
 @use '../modules/mixins';
 
@@ -20,11 +21,21 @@
    display: block;
    margin: 0 auto 48px;
 
+   // Add background image to .location-item__img 
+   $locationFilenames: ('moga-woods', 'flooded-forest', 'sandy-plains', 'tundra', 'volcano');
+   $counter: 1;
+
+   @each $filename in $locationFilenames {
+      &:nth-child(#{$counter}) &__img {
+         background-image: url('../assets/images/#{$filename}.jpg');
+      }
+      $counter: $counter + 1;
+   }
    &:hover &__img-container {
       border-color: variables.$yellow;
    }
    &:hover &__img {
-      background-size: 175%;
+      background-size: 100%;
       border-color: variables.$yellow;
    }
    &:hover .frame--white {
@@ -40,9 +51,8 @@
    }
    &__img {
       background-color: variables.$dark-blue;
-      background-image: url('../assets/images/placeholder.jpg');
       background-position: center;
-      background-size: 200%;
+      background-size: 125%;
       background-repeat: no-repeat;
       height: 100%;
       border: 1px solid variables.$black;
