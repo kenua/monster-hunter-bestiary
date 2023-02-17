@@ -114,4 +114,16 @@
    &__th, &__td {
       padding:  8px;
    }
+   &__monster-name {
+      font-size: 2.4rem;
+      font-weight: bold;
+   }
+   .double-line-separator {
+      width: 275px;
+      height: 4px;
+      margin: 15px 0;
+      border: 1px solid white;
+      border-left: none;
+      border-right: none;
+   }
 }
