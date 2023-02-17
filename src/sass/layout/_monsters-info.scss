@@ -1,4 +1,5 @@
 @use '../modules/variables';
+@use '../modules/mixins';
 
 .monsters-info {
    &__content {
@@ -14,6 +15,15 @@
    }
    &__list--hidden {
       margin-left: -100%;
+   }
+
+   @include mixins.desktop-view {
+      &__content {
+        column-gap: 124px; 
+      }
+      &__item {
+         flex-shrink: 1;
+      }  
    }
 }
 .monsters-info-button {
