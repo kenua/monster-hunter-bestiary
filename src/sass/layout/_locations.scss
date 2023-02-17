@@ -1,11 +1,6 @@
 @use '../modules/variables';
 @use '../modules/mixins';
 
-.locations {
-   .section-heading {
-      margin-bottom: 80px;
-   }
-}
 .locations-list {
    @include mixins.tablet-view {
       display: grid;
