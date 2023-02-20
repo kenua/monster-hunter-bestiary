@@ -57,7 +57,37 @@ function fadeIn (nodeRef, display = 'block', callback) {
    fadeInAnimation();
 }
 
+function fadeInFromBottom(nodeRef, delay = '', callback = null) {
+   let listener = (e) => {
+      if (e.propertyName !== 'opacity') return;
+      nodeRef.removeEventListener('transitionend', listener);
+      if (callback) callback();
+   };
+
+   nodeRef.style.transition = 'opacity 750ms ease-in-out, transform 750ms ease-in-out';
+   nodeRef.style.transitionDelay = delay;
+   nodeRef.style.opacity = 1;
+   nodeRef.style.transform = 'translateY(0px)';
+   nodeRef.addEventListener('transitionend', listener);
+}
+
+function fadeOutFromTop(nodeRef, delay = '', callback = null) {
+   let listener = (e) => {
+      if (e.propertyName !== 'opacity') return;
+      nodeRef.removeEventListener('transitionend', listener);
+      if (callback) callback();
+   }
+   
+   nodeRef.style.transition = 'opacity 750ms ease-in-out, transform 750ms ease-in-out';
+   nodeRef.style.transitionDelay = delay;
+   nodeRef.style.opacity = 0;
+   nodeRef.style.transform = 'translateY(50px)';
+   nodeRef.addEventListener('transitionend', listener);
+}
+
 export {
    fadeOut,
    fadeIn,
+   fadeInFromBottom,
+   fadeOutFromTop,
 };
