@@ -3,7 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
    mode: 'development',
-   entry: path.resolve(__dirname, 'src/index.js'),
+   entry: {
+      index: path.resolve(__dirname, 'src/index.js'),
+      admin: path.resolve(__dirname, 'src/admin.js'),
+   },
    devtool: 'inline-source-map',
    output: {
       filename: '[name].js',
@@ -34,8 +37,14 @@ module.exports = {
    },
    plugins: [
       new HtmlWebpackPlugin({
+         chunks: ['index'],
          filename: 'index.html',
          template: path.resolve(__dirname, 'src/pages/index.html'),
+      }),
+      new HtmlWebpackPlugin({
+         chunks: ['admin'],
+         filename: 'admin.html',
+         template: path.resolve(__dirname, 'src/pages/admin.html'),
       }),
    ],
 };

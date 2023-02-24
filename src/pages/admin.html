@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="https://github.com/kenua">
+   <title>Monster Hunter 3 Tri Online Bestiary - Manage</title>
+</head>
+<body>
+   <div class="lines-pattern">
+      <!--CRETAE MONSTERS FORM-->
+      <section class="create-monsters-form wrapper">
+         <div class="section-heading">
+            <h1 class="section-heading__heading">Create new <br> monsters</h1>
+         </div>
+         <div class="box-frame-container">
+            <div class="box-frame box-frame--black">
+               <div class="box-frame box-frame--white">
+                  <div class="box-frame box-frame--black">
+                     <div class="box-frame box-frame__content">                                    
+                        <form class="form">
+                           <div class="form__item form__item--half-width">
+                              <label for="monster-image" class="form__label">Image</label>
+                              <input 
+                                 type="file" 
+                                 name="monster-image" 
+                                 id="monster-image" 
+                                 class="form__input"
+                                 title="Select an image (.png only)"
+                                 required
+                              >
+                           </div>
+                           <div class="form__item form__item--half-width">
+                              <label for="monster-name" class="form__label">name</label>
+                              <input 
+                                 type="text" 
+                                 name="monster-name" 
+                                 id="monster-name"
+                                 pattern="^[a-zA-Z ]{1,100}"
+                                 class="form__input"
+                                 required
+                              >
+                           </div>
+                           <div class="form__item">
+                              <label for="monster-desc" class="form__label">Description</label>
+                              <textarea 
+                                 name="monster-desc" 
+                                 id="monster-desc" 
+                                 cols="30"
+                                 rows="10"
+                                 pattern="^[\w\d ,.\n]{1,500}"
+                                 class="form__input"
+                                 required
+                              ></textarea>
+                           </div>
+                           <div class="form__item form__item--quarter-width">
+                              <p class="form__label">Type:</p>
+                              <div class="form__option">
+                                 <input type="radio" name="type" id="type-bird-wyvern" value="bird-wyvern" checked>
+                                 <label for="type-bird-wyvern">Bird Wyvern</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="radio" name="type" id="type-brute-wyvern" value="brute-wyvern">
+                                 <label for="type-brute-wyvern">Brute Wyvern</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="radio" name="type" id="type-flying-wyvern" value="flying-wyvern">
+                                 <label for="type-flying-wyvern">Flying Wyvern</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="radio" name="type" id="type-piscine-wyvern" value="piscine-wyvern" >
+                                 <label for="type-piscine-wyvern">Piscine Wyvern</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="radio" name="type" id="type-leviathan" value="leviathan">
+                                 <label for="type-leviathan">Leviathan</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="radio" name="type" id="type-lynian" value="lynian">
+                                 <label for="type-lynian">Lynian</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="radio" name="type" id="type-herbivore" value="herbivore">
+                                 <label for="type-herbivore">Herbivore</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="radio" name="type" id="type-neopteron" value="neopteron">
+                                 <label for="type-neopteron">Neopteron</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="radio" name="type" id="type-fish" value="fish">
+                                 <label for="type-fish">Fish</label>
+                              </div>
+                           </div>
+                           <div class="form__item form__item--quarter-width">
+                              <p class="form__label">Element:</p>
+                              <div class="form__option">
+                                 <input type="radio" name="element" value="none" id="element-none" checked>
+                                 <label for="element-none">None</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="radio" name="element" id="element-fire" value="fire">
+                                 <label for="element-fire">Fire</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="radio" name="element" id="element-ice" value="ice">
+                                 <label for="element-ice">Ice </label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="radio" name="element" id="element-thunder" value="thunder">
+                                 <label for="element-thunder">Thunder</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="radio" name="element" id="element-water" value="water">
+                                 <label for="element-water">Water</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="radio" name="element" id="element-poison" value="poison">
+                                 <label for="element-poison">Poison</label>
+                              </div>
+                           </div>
+                           <div class="form__item form__item--quarter-width">
+                              <p class="form__label">weakness:</p>
+                              <div class="form__option">
+                                 <input type="checkbox" name="weakness" value="none" id="weakness-none" checked>
+                                 <label for="weakness-none">None</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="checkbox" name="weakness" id="weakness-fire" value="fire">
+                                 <label for="weakness-fire">Fire</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="checkbox" name="weakness" id="weakness-ice" value="ice">
+                                 <label for="weakness-ice">Ice </label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="checkbox" name="weakness" id="weakness-thunder" value="thunder">
+                                 <label for="weakness-thunder">Thunder</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="checkbox" name="weakness" id="weakness-water" value="water">
+                                 <label for="weakness-water">Water</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="checkbox" name="weakness" id="weakness-poison" value="poison">
+                                 <label for="weakness-poison">Poison</label>
+                              </div>
+                           </div>
+                           <div class="form__item form__item--quarter-width">
+                              <p class="form__label">Habitat:</p>
+                              <div class="form__option">
+                                 <input type="checkbox" name="habitat" value="moga-woods" id="habitat-moga-woods" checked>
+                                 <label for="habitat-moga-woods">Moga woods</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="checkbox" name="habitat" id="habitat-flooded-forest" value="flooded-forest">
+                                 <label for="habitat-flooded-forest">Flooded Forest</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="checkbox" name="habitat" id="habitat-sandy-plains" value="sandy-plains">
+                                 <label for="habitat-sandy-plains">Sandy Plains</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="checkbox" name="habitat" id="habitat-tundra" value="tundra">
+                                 <label for="habitat-tundra">Tundra</label>
+                              </div>
+                              <div class="form__option">
+                                 <input type="checkbox" name="habitat" id="habitat-volcano" value="volcano">
+                                 <label for="habitat-volcano">Volcano</label>
+                              </div>
+                           </div>
+                           <div class="form__item">
+                              <button type="submit" class="form__submit-button">Create</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+   </div>
+</body>
+</html>

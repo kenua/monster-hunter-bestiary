@@ -1,0 +1,62 @@
+@use '../modules/variables';
+@use '../modules/mixins';
+
+.form {
+   display: flex;
+   flex-wrap: wrap;
+
+   &__item {
+      width: 100%;
+      margin-bottom: 24px;
+   }
+   &__label {
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 8px;
+   }
+   &__input {
+      background-color: #00000000;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
+      padding: 6px;
+      width: 100%;
+      border: 3px double variables.$yellow;
+
+      &:focus, &:hover {
+         border-color: white;
+      }
+   }
+   &__option {
+      color: variables.$yellow;
+      margin-bottom: 6px;
+   }
+   &__submit-button {
+      text-transform: uppercase;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.6rem;
+      background-color: #00000000;
+      color: white;
+      border: 3px double variables.$yellow;
+      padding: 6px;
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+
+      &:focus, &:hover {
+         border-color: white;
+      }
+   }
+
+   @include mixins.desktop-view {
+      &__item {
+         padding: 0 6px;
+      }
+      &__item--half-width {
+         width: 50%;
+      }
+      &__item--quarter-width {
+         width: 25%;
+      }
+   }
+}
