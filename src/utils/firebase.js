@@ -46,6 +46,7 @@ async function createNewMonsterDoc(data, imageFile) {
 
    // add monster doc to firebase
    try {
+      let { name, type, element, desc, weakness, habitat } = data;
       let imageRef = ref(storage, imageFile.name);
       let uploadResult = await uploadBytes(imageRef, imageFile);
       let imageURL = await getDownloadURL(imageRef);
