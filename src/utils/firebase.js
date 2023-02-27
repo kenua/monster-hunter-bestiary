@@ -13,6 +13,7 @@ import {
    query,
    where,
    serverTimestamp,
+   onSnapshot
 } from 'firebase/firestore';
 import {
    getStorage,
@@ -143,9 +144,17 @@ async function deleteMonsterDoc(id) {
    }
 }
 
+function listenToDocChanges(callback) {
+   return onSnapshot(
+      monstersCollection,
+      callback
+   );
+}
+
 export {
    createNewMonsterDoc,
    getMonstersDoc,
    updateMonsterDoc,
    deleteMonsterDoc,
+   listenToDocChanges,
 };

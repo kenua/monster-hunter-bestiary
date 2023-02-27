@@ -1,0 +1,41 @@
+@use '../modules/mixins';
+
+.monster-item {
+   padding: 16px;
+   margin-bottom: 24px;
+
+   &:nth-child(odd) {
+      background-color: #242424;
+   }
+   &__image-container {
+      text-align: center;
+      margin-bottom: 16px;
+      border-bottom: 1px solid white;
+      padding-bottom: 16px;
+   }
+   &__image {
+      max-width: 120px;
+   }
+   &__info p {
+      margin-bottom: 16px;
+   }
+
+   @include mixins.tablet-view {
+      display: flex;
+
+      &__image-container {
+         margin-bottom: 0px;
+         margin-right: 16px;
+         border-bottom: none;
+         border-right: 1px solid white;
+         padding-bottom: 0px;
+         padding-right: 16px;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+      }
+      &__info {
+         flex-grow: 1;
+      }
+   }
+}
