@@ -27,6 +27,12 @@
          border-color: white;
       }
    }
+   &__error-message {
+      line-height: 1.5;
+      color: salmon;
+      text-transform: capitalize;
+      padding: 8px;
+   }
    &__option {
       color: variables.$yellow;
       margin-bottom: 6px;

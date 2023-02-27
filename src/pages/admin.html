@@ -18,7 +18,7 @@
                <div class="box-frame box-frame--white">
                   <div class="box-frame box-frame--black">
                      <div class="box-frame box-frame__content">                                    
-                        <form class="form">
+                        <form id="create-monster-form" class="form">
                            <div class="form__item form__item--half-width">
                               <label for="monster-image" class="form__label">Image</label>
                               <input 
@@ -29,6 +29,7 @@
                                  title="Select an image (.png only)"
                                  required
                               >
+                              <p id="monster-image-error-message" class="form__error-message"></p>
                            </div>
                            <div class="form__item form__item--half-width">
                               <label for="monster-name" class="form__label">name</label>
@@ -40,6 +41,7 @@
                                  class="form__input"
                                  required
                               >
+                              <p id="monster-name-error-message" class="form__error-message"></p>
                            </div>
                            <div class="form__item">
                               <label for="monster-desc" class="form__label">Description</label>
@@ -52,6 +54,7 @@
                                  class="form__input"
                                  required
                               ></textarea>
+                              <p id="monster-desc-error-message" class="form__error-message"></p>
                            </div>
                            <div class="form__item form__item--quarter-width">
                               <p class="form__label">Type:</p>
@@ -169,6 +172,7 @@
                                  <label for="habitat-volcano">Volcano</label>
                               </div>
                            </div>
+                           <p id="monster-options-error-message" class="form__error-message"></p>
                            <div class="form__item">
                               <button type="submit" class="form__submit-button">Create</button>
                            </div>
