@@ -30,7 +30,7 @@ const updateFormWeaknessField = updateForm.elements['weakness'];
 const updateFormHabitatField = updateForm.elements['habitat'];
 
 form.addEventListener('submit', createNewMonster);
-manageMonstersContainer.addEventListener('click', deleteMonster);
+manageMonstersContainer.addEventListener('click', handleMonsterButtons);
 listenToDocChanges(printMonsters);
 updateFormContainer.addEventListener('click', closeUpdateForm);
 
@@ -127,7 +127,7 @@ function printMonsters(snapshot) {
    manageMonstersContainer.innerHTML = content;
 }
 
-function deleteMonster(e) {
+function handleMonsterButtons(e) {
    let target = e.target;
 
    if (target.nodeName === 'BUTTON' && target.dataset.id) {
