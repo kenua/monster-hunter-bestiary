@@ -99,6 +99,20 @@ async function getMonstersDoc(habitat = null) {
 
 }
 
+async function getSingleMonsterDoc(id) {
+   try {
+      let docRef = doc(db, 'monsters', id);
+      let monsterDoc = await getDoc(docRef);
+
+      return {
+         ...monsterDoc.data(),
+         id: monsterDoc.id,
+      };
+   } catch (err) {
+      throw new Error('An error occurred while getting a monster');
+   }
+}
+
 async function updateMonsterDoc(id = '', data, newImageFile = null) {
    let errors = validateMonsterData(data, newImageFile);
 
@@ -154,6 +168,7 @@ function listenToDocChanges(callback) {
 export {
    createNewMonsterDoc,
    getMonstersDoc,
+   getSingleMonsterDoc,
    updateMonsterDoc,
    deleteMonsterDoc,
    listenToDocChanges,
