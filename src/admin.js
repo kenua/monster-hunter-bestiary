@@ -164,6 +164,8 @@ function closeUpdateForm(e) {
    if (e.target.dataset.exit) {
       fadeOut(updateFormContainer, () => {
          document.body.style.overflow = '';
+         updateFormWeaknessField.forEach(field => field.checked = false);
+         updateFormHabitatField.forEach(field =>  field.checked = false);
       });
    }
 }
