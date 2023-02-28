@@ -37,22 +37,6 @@
       color: variables.$yellow;
       margin-bottom: 6px;
    }
-   &__submit-button {
-      text-transform: uppercase;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 1.6rem;
-      background-color: #00000000;
-      color: white;
-      border: 3px double variables.$yellow;
-      padding: 6px;
-      display: block;
-      margin: 0 auto;
-      cursor: pointer;
-
-      &:focus, &:hover {
-         border-color: white;
-      }
-   }
 
    @include mixins.desktop-view {
       &__item {

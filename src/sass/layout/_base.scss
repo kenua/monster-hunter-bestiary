@@ -130,3 +130,21 @@ body {
    opacity: 0;
    transform: translateY(50px);
 }
+.button {
+   text-transform: uppercase;
+   font-family: 'Courier New', Courier, monospace;
+   font-size: 1.6rem;
+   background-color: #00000000;
+   color: white;
+   border: 3px double variables.$yellow;
+   padding: 6px;
+   cursor: pointer;
+
+   &:focus, &:hover {
+      border-color: white;
+   }
+}
+.button--form {
+   display: block;
+   margin: 0 auto;
+}
