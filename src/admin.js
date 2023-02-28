@@ -5,9 +5,11 @@ import {
    createNewMonsterDoc,
    updateMonsterDoc, 
    deleteMonsterDoc,
-   listenToDocChanges
+   listenToDocChanges,
+   getSingleMonsterDoc
 } from './utils/firebase.js';
 import monsterItemMarkup from './assets/markup/admin-monster-item.html';
+import { fadeIn, fadeOut } from './utils/fadeFunctions.js';
 
 const form = document.getElementById('create-monster-form');
 const imageErrorMessage = document.getElementById('monster-image-error-message');
@@ -15,10 +17,22 @@ const nameErrorMessage = document.getElementById('monster-name-error-message');
 const descErrorMessage = document.getElementById('monster-desc-error-message');
 const optionErrorMessage = document.getElementById('monster-options-error-message');
 const manageMonstersContainer = document.getElementById('manage-monsters-container');
+const updateFormContainer = document.getElementById('update-form-container');
+const updateForm = document.getElementById('update-monster-form');
+const updateformHeading = document.getElementById('update-form-heading');
+const updateFormIdField = updateForm.elements['monster-id'];
+const updateFormImageField = updateForm.elements['monster-image'];
+const updateFormNameField = updateForm.elements['monster-name'];
+const updateFormDescField = updateForm.elements['monster-desc'];
+const updateFormTypeField = updateForm.elements['type'];
+const updateFormElementField = updateForm.elements['element'];
+const updateFormWeaknessField = updateForm.elements['weakness'];
+const updateFormHabitatField = updateForm.elements['habitat'];
 
 form.addEventListener('submit', createNewMonster);
 manageMonstersContainer.addEventListener('click', deleteMonster);
 listenToDocChanges(printMonsters);
+updateFormContainer.addEventListener('click', closeUpdateForm);
 
 async function createNewMonster(e) {
    e.preventDefault();
@@ -118,7 +132,39 @@ function deleteMonster(e) {
 
    if (target.nodeName === 'BUTTON' && target.dataset.id) {
       if (target.textContent === 'Delete') deleteMonsterDoc(target.dataset.id);
-      if (target.textContent === 'Update') console.log('update');
+      if (target.textContent === 'Update') openUpdateForm(target.dataset.id);
+   }
+}
+
+async function openUpdateForm(id) {
+   let monsterDoc = await getSingleMonsterDoc(id);
+
+   document.body.style.overflow = 'hidden';
+   updateformHeading.textContent = `Update ${monsterDoc.name}`;
+   // fill up update form
+   updateFormIdField.value = monsterDoc.id;
+   updateFormNameField.value = monsterDoc.name;
+   updateFormDescField.value = monsterDoc.desc;
+   updateFormTypeField.forEach((typeField) => 
+      (typeField.value === monsterDoc.type) ?  typeField.checked = true : null
+   );
+   updateFormElementField.forEach((elementField) => 
+      (elementField.value === monsterDoc.element) ? elementField.checked = true : null
+   );
+   monsterDoc.weakness.forEach(weakness =>
+      updateFormWeaknessField.forEach(field => (field.value === weakness) ? field.checked = true : null)
+   );
+   monsterDoc.habitat.forEach(habitat =>
+      updateFormHabitatField.forEach(field => (field.value === habitat) ? field.checked = true : null)
+   );
+   fadeIn(updateFormContainer, 'block');
+}
+
+function closeUpdateForm(e) {
+   if (e.target.dataset.exit) {
+      fadeOut(updateFormContainer, () => {
+         document.body.style.overflow = '';
+      });
    }
 }
 
