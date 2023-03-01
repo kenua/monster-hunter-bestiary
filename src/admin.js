@@ -28,11 +28,16 @@ const updateFormTypeField = updateForm.elements['type'];
 const updateFormElementField = updateForm.elements['element'];
 const updateFormWeaknessField = updateForm.elements['weakness'];
 const updateFormHabitatField = updateForm.elements['habitat'];
+const updateFormImageErrorMessage = document.getElementById('update-monster-image-error-message');
+const updateFormNameErrorMessage = document.getElementById('update-monster-name-error-message');
+const updateFormDescErrorMessage = document.getElementById('update-monster-desc-error-message');
+const updateFormOptionErrorMessage = document.getElementById('update-monster-options-error-message');
 
 form.addEventListener('submit', createNewMonster);
 manageMonstersContainer.addEventListener('click', handleMonsterButtons);
 listenToDocChanges(printMonsters);
 updateFormContainer.addEventListener('click', closeUpdateForm);
+updateForm.addEventListener('submit', updateMonster);
 
 async function createNewMonster(e) {
    e.preventDefault();
@@ -170,8 +175,49 @@ function closeUpdateForm(e) {
    }
 }
 
-   // updateMonsterDoc('OPtxyDp6TNpc5hCorY4B', {
-   //       name, desc, type, element, weakness, habitat,
-   //    },
-   //    imageInput.files[0]
-   // )
+async function updateMonster(e) {
+   e.preventDefault();
+
+   try {
+      let data = {
+      name: updateFormNameField.value,
+         type: updateFormTypeField.value,
+         element: updateFormElementField.value,
+         desc: updateFormDescField.value,
+         weakness: [...updateFormWeaknessField].reduce((acc, node) => {
+            if (node.checked) {
+               acc.push(node.value);
+            }
+            return acc;
+         }, []),
+         habitat: [...updateFormHabitatField].reduce((acc, node) => {
+            if (node.checked) {
+               acc.push(node.value);
+            }
+            return acc;
+         }, []),
+      };
+      let newImage = (updateFormImageField.files[0]) ? updateFormImageField.files[0] : null;
+   
+      await updateMonsterDoc(updateFormIdField.value, data, newImage);
+      fadeOut(updateFormContainer, () => {
+         document.body.style.overflow = '';
+         updateFormWeaknessField.forEach(field => field.checked = false);
+         updateFormHabitatField.forEach(field =>  field.checked = false);
+      });
+   } catch (err) {
+      if (!(err instanceof Error)) {
+         updateFormImageErrorMessage.textContent = err.imageFile ? err.imageFile : '';
+         updateFormNameErrorMessage.textContent = err.name ? err.name : '';
+         updateFormDescErrorMessage.textContent = err.desc ? err.desc : '';
+         let optionMessages = '';
+         optionMessages += err.type ? err.type + '<br>' : '';
+         optionMessages += err.element ? err.element + '<br>' : '';
+         optionMessages += err.weakness ? err.weakness + '<br>' : '';
+         optionMessages += err.habitat ? err.habitat + '<br>' : '';
+         updateFormOptionErrorMessage.innerHTML = optionMessages;
+      } else {
+         throw err;
+      }
+   }
+}
