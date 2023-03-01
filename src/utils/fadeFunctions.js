@@ -4,12 +4,12 @@ function easeInCubic(t, b, c, d) {
    return c*(t/=d)*t*t + b;
 }
 
-function fadeOut (nodeRef, callback) {
+function fadeOut (nodeRef, callback, time = 1000) {
    // define variables required for timing function
    let start = 1;
    let end = 0;
    let frameRate = 60 / 1000;
-   let duration = 1000;
+   let duration = time;
    let step = 0;
    let fadeOutAnimation = () => {
       step++;
@@ -30,12 +30,12 @@ function fadeOut (nodeRef, callback) {
    fadeOutAnimation();
 }
 
-function fadeIn (nodeRef, display = 'block', callback) {
+function fadeIn (nodeRef, display = 'block', callback, time = 1000) {
    // define variables required for timing function
    let start = 0;
    let end = 1;
    let frameRate = 60 / 1000;
-   let duration = 1000;
+   let duration = time;
    let step = 0;
    let fadeInAnimation = () => {
       step++;

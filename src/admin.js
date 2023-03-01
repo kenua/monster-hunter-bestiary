@@ -162,7 +162,7 @@ async function openUpdateForm(id) {
    monsterDoc.habitat.forEach(habitat =>
       updateFormHabitatField.forEach(field => (field.value === habitat) ? field.checked = true : null)
    );
-   fadeIn(updateFormContainer, 'block');
+   fadeIn(updateFormContainer, 'block', null, 250);
 }
 
 function closeUpdateForm(e) {
@@ -171,7 +171,7 @@ function closeUpdateForm(e) {
          document.body.style.overflow = '';
          updateFormWeaknessField.forEach(field => field.checked = false);
          updateFormHabitatField.forEach(field =>  field.checked = false);
-      });
+      }, 250);
    }
 }
 
@@ -204,7 +204,7 @@ async function updateMonster(e) {
          document.body.style.overflow = '';
          updateFormWeaknessField.forEach(field => field.checked = false);
          updateFormHabitatField.forEach(field =>  field.checked = false);
-      });
+      }, 250);
    } catch (err) {
       if (!(err instanceof Error)) {
          updateFormImageErrorMessage.textContent = err.imageFile ? err.imageFile : '';
