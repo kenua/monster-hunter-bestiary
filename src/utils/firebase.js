@@ -22,6 +22,12 @@ import {
    getDownloadURL,
    deleteObject
 } from 'firebase/storage';
+import {
+   getAuth,
+   signInWithEmailAndPassword,
+   signOut,
+   onAuthStateChanged
+} from 'firebase/auth';
 import validateMonsterData from './validateMonsterData.js';
 
 // # FIREBASE CONFIG
@@ -37,6 +43,7 @@ const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 const db = getFirestore(app);
 const monstersCollection = collection(db, 'monsters');
+const auth = getAuth(app);
 
 // # FIRESTORE CRUD FUNCTIONS
 async function createNewMonsterDoc(data, imageFile) {
@@ -165,6 +172,21 @@ function listenToDocChanges(callback) {
    );
 }
 
+// # AUTH FUNCTIONS
+async function login(email, password) {
+   let credentials = await signInWithEmailAndPassword(auth, email, password);
+   return credentials;
+}
+
+async function logout() {
+   let res = signOut(auth)
+   return res;
+}
+
+function listenStateChange(callback) {
+   onAuthStateChanged(auth, callback);
+}
+
 export {
    createNewMonsterDoc,
    getMonstersDoc,
@@ -172,4 +194,7 @@ export {
    updateMonsterDoc,
    deleteMonsterDoc,
    listenToDocChanges,
+   login,
+   logout,
+   listenStateChange,
 };

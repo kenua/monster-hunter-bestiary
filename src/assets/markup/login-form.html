@@ -1,0 +1,46 @@
+<!--LOGIN FORM-->
+<section class="wrapper">
+   <div class="section-heading">
+      <h2 class="section-heading__heading">Login</h2>
+   </div>
+   <div class="box-frame-container">
+      <div class="box-frame box-frame--black">
+         <div class="box-frame box-frame--white">
+            <div class="box-frame box-frame--black">
+               <div class="box-frame box-frame__content">                                    
+                  <form id="login-form" class="form">
+                     <div class="form__item">
+                        <label for="login-email" class="form__label">Email Address</label>
+                        <input 
+                           type="email"
+                           name="login-email"
+                           id="login-email"
+                           class="form__input"
+                           title="Write down your email address"
+                           required
+                        >
+                        <p id="email-error-message" class="form__error-message"></p>
+                     </div>
+                     <div class="form__item">
+                        <label for="login-password" class="form__label">Password</label>
+                        <input 
+                           type="password" 
+                           name="login-password" 
+                           id="login-password"
+                           class="form__input"
+                           pattern="^(?=.*\d)(?=.*[a-z])(?!.*\s).*$"
+                           required
+                        >
+                        <p id="password-error-message" class="form__error-message"></p>
+                     </div>
+                     <p id="login-error-message" class="form__error-message"></p>
+                     <div class="form__item">
+                        <button type="submit" class="button button--form">Login</button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>

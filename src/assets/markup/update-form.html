@@ -1,0 +1,178 @@
+<!--UPDATE FORM-->
+<div id="update-form-container" class="update-form-container" data-exit="true">
+   <div class="update-form__content wrapper" data-exit="true">
+      <div class="section-heading">
+         <h2 id="update-form-heading" class="section-heading__heading"></h2>
+      </div>
+      <div class="box-frame-container">
+         <div class="box-frame box-frame--black">
+            <div class="box-frame box-frame--white">
+               <div class="box-frame box-frame--black">
+                  <div class="box-frame box-frame__content">                                    
+                     <form id="update-monster-form" class="form">
+                        <input type="hidden" name="monster-id">
+                        <div class="form__item form__item--half-width">
+                           <label for="update-monster-image" class="form__label">New Image</label>
+                           <input 
+                              type="file" 
+                              name="monster-image" 
+                              id="update-monster-image" 
+                              class="form__input"
+                              title="Select an image (.png only)"
+                           >
+                           <p id="update-monster-image-error-message" class="form__error-message"></p>
+                        </div>
+                        <div class="form__item form__item--half-width">
+                           <label for="update-monster-name" class="form__label">name</label>
+                           <input 
+                              type="text" 
+                              name="monster-name" 
+                              id="update-monster-name"
+                              pattern="^[a-zA-Z ]{1,100}"
+                              class="form__input"
+                              required
+                           >
+                           <p id="update-monster-name-error-message" class="form__error-message"></p>
+                        </div>
+                        <div class="form__item">
+                           <label for="update-monster-desc" class="form__label">Description</label>
+                           <textarea 
+                              name="monster-desc" 
+                              id="update-monster-desc" 
+                              cols="30"
+                              rows="10"
+                              pattern="^[\w\d ,.\n]{1,500}"
+                              class="form__input"
+                              required
+                           ></textarea>
+                           <p id="update-monster-desc-error-message" class="form__error-message"></p>
+                        </div>
+                        <div class="form__item form__item--quarter-width">
+                           <p class="form__label">Type:</p>
+                           <div class="form__option">
+                              <input type="radio" name="type" id="update-type-bird-wyvern" value="bird-wyvern">
+                              <label for="update-type-bird-wyvern">Bird Wyvern</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="radio" name="type" id="update-type-brute-wyvern" value="brute-wyvern">
+                              <label for="update-type-brute-wyvern">Brute Wyvern</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="radio" name="type" id="update-type-flying-wyvern" value="flying-wyvern">
+                              <label for="update-type-flying-wyvern">Flying Wyvern</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="radio" name="type" id="update-type-piscine-wyvern" value="piscine-wyvern" >
+                              <label for="update-type-piscine-wyvern">Piscine Wyvern</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="radio" name="type" id="update-type-leviathan" value="leviathan">
+                              <label for="update-type-leviathan">Leviathan</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="radio" name="type" id="update-type-lynian" value="lynian">
+                              <label for="update-type-lynian">Lynian</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="radio" name="type" id="update-type-herbivore" value="herbivore">
+                              <label for="update-type-herbivore">Herbivore</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="radio" name="type" id="update-type-neopteron" value="neopteron">
+                              <label for="update-type-neopteron">Neopteron</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="radio" name="type" id="update-type-fish" value="fish">
+                              <label for="update-type-fish">Fish</label>
+                           </div>
+                        </div>
+                        <div class="form__item form__item--quarter-width">
+                           <p class="form__label">Element:</p>
+                           <div class="form__option">
+                              <input type="radio" name="element" value="none" id="update-element-none">
+                              <label for="update-element-none">None</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="radio" name="element" id="update-element-fire" value="fire">
+                              <label for="update-element-fire">Fire</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="radio" name="element" id="update-element-ice" value="ice">
+                              <label for="update-element-ice">Ice </label>
+                           </div>
+                           <div class="form__option">
+                              <input type="radio" name="element" id="update-element-thunder" value="thunder">
+                              <label for="update-element-thunder">Thunder</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="radio" name="element" id="update-element-water" value="water">
+                              <label for="update-element-water">Water</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="radio" name="element" id="update-element-poison" value="poison">
+                              <label for="update-element-poison">Poison</label>
+                           </div>
+                        </div>
+                        <div class="form__item form__item--quarter-width">
+                           <p class="form__label">weakness:</p>
+                           <div class="form__option">
+                              <input type="checkbox" name="weakness" value="none" id="update-weakness-none">
+                              <label for="update-weakness-none">None</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="checkbox" name="weakness" id="update-weakness-fire" value="fire">
+                              <label for="update-weakness-fire">Fire</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="checkbox" name="weakness" id="update-weakness-ice" value="ice">
+                              <label for="update-weakness-ice">Ice </label>
+                           </div>
+                           <div class="form__option">
+                              <input type="checkbox" name="weakness" id="update-weakness-thunder" value="thunder">
+                              <label for="update-weakness-thunder">Thunder</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="checkbox" name="weakness" id="update-weakness-water" value="water">
+                              <label for="update-weakness-water">Water</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="checkbox" name="weakness" id="update-weakness-poison" value="poison">
+                              <label for="update-weakness-poison">Poison</label>
+                           </div>
+                        </div>
+                        <div class="form__item form__item--quarter-width">
+                           <p class="form__label">Habitat:</p>
+                           <div class="form__option">
+                              <input type="checkbox" name="habitat" value="moga-woods" id="update-habitat-moga-woods">
+                              <label for="update-habitat-moga-woods">Moga woods</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="checkbox" name="habitat" id="update-habitat-flooded-forest" value="flooded-forest">
+                              <label for="update-habitat-flooded-forest">Flooded Forest</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="checkbox" name="habitat" id="update-habitat-sandy-plains" value="sandy-plains">
+                              <label for="update-habitat-sandy-plains">Sandy Plains</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="checkbox" name="habitat" id="update-habitat-tundra" value="tundra">
+                              <label for="update-habitat-tundra">Tundra</label>
+                           </div>
+                           <div class="form__option">
+                              <input type="checkbox" name="habitat" id="update-habitat-volcano" value="volcano">
+                              <label for="update-habitat-volcano">Volcano</label>
+                           </div>
+                        </div>
+                        <p id="update-monster-options-error-message" class="form__error-message"></p>
+                        <div class="form__item text-center">
+                           <button type="submit" class="button">Update</button>
+                           <button type="button" class="button" data-exit="true">Cancel</button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
