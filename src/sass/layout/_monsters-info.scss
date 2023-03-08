@@ -127,3 +127,11 @@
       border-right: none;
    }
 }
+.back-to-list {
+   color: white;
+   text-decoration: none;
+
+   @include mixins.desktop-view {
+      display: none;
+   }
+}

@@ -9,19 +9,19 @@
 <body>
    <div class="lines-pattern">
       <!--LOGO-->
-      <section class="logo">
+      <section id="logo" class="logo">
          <img src="../assets/images/Logo-mobile.png" 
             srcset="../assets/images/Logo-mobile.png 768w, ../assets/images/Logo-desktop.png 1024w"
             alt="Monster Hunter 3 Tri Logo"
             class="logo__img">
       </section>
       <!--LOCATIONS-->
-      <section class="wrapper locations hidden"> 
+      <section id="locations" class="wrapper locations hidden"> 
          <div class="hidden-below">
             <div class="section-heading">
                <h2 class="section-heading__heading">View monsters <br> by location</h2>   
             </div>
-            <div class="locations-list">
+            <div id="locations-list" class="locations-list">
                <a href="#moga-woods" class="location-item">
                   <div class="location-item__img-container">
                      <div class="location-item__img"></div>
@@ -39,7 +39,7 @@
                   </div>
                </a>
    
-               <a href="#" class="location-item">
+               <a href="#flooded-forest" class="location-item">
                   <div class="location-item__img-container">
                      <div class="location-item__img"></div>
                   </div>
@@ -56,7 +56,7 @@
                   </div>
                </a>
    
-               <a href="#" class="location-item">
+               <a href="#sandy-plains" class="location-item">
                   <div class="location-item__img-container">
                      <div class="location-item__img"></div>
                   </div>
@@ -73,7 +73,7 @@
                   </div>
                </a>
    
-               <a href="#" class="location-item">
+               <a href="#tundra" class="location-item">
                   <div class="location-item__img-container">
                      <div class="location-item__img"></div>
                   </div>
@@ -90,7 +90,7 @@
                   </div>
                </a>
    
-               <a href="#" class="location-item">
+               <a href="#volcano" class="location-item">
                   <div class="location-item__img-container">
                      <div class="location-item__img"></div>
                   </div>
@@ -111,46 +111,19 @@
       </section>
 
       <!--MONSTERS INFO-->
-      <section class="monsters-info wrapper hidden">
+      <section id="monsters-info" class="monsters-info wrapper hidden">
          <div class="hidden-below">
             <div class="section-heading">
-               <h2 class="section-heading__heading">Moga woods <br> Monsters</h2>   
+               <h2 id="location-heading" class="section-heading__heading"></h2>   
             </div>
    
             <div class="monsters-info__content">
-               <div class="monsters-info__item monsters-info__list">
-                  <ul class="monsters-info__ul">
-                     <li class="monsters-info__li">
-                        <button type="button" class="monsters-info-button">
-                           <span class="button-frame frame--black">
-                              <span class="button-frame frame--white">
-                                 <span class="button-frame frame--black">
-                                    <span class="button-frame-content">
-                                       Great Jaggi
-                                       <span class="monsters-info-button__diamond"></span>
-                                    </span>
-                                 </span>
-                              </span>
-                           </span>
-                        </button>
-                     </li>
-                     <li>
-                        <button type="button" class="monsters-info-button monsters-info-button--selected">
-                           <span class="button-frame frame--black">
-                              <span class="button-frame frame--white">
-                                 <span class="button-frame frame--black">
-                                    <span class="button-frame-content">
-                                       Great Jaggi
-                                       <span class="monsters-info-button__diamond"></span>
-                                    </span>
-                                 </span>
-                              </span>
-                           </span>
-                        </button>
-                     </li>
-                  </ul>
+               <div id="monster-info-list" class="monsters-info__item monsters-info__list">
+                  <ul id="monsters-info-ul" class="monsters-info__ul"></ul>
                </div>
-               <div class="monsters-info__item info-container">
+               <div id="info-container" class="monsters-info__item info-container">
+                  <a href="#" id="back-to-list" class="back-to-list">&#8592; Back</a>
+
                   <div class="box-frame-container monster-image">
                      <span class="box-frame-container__square box-frame-container__square--top-left"></span>
                      <span class="box-frame-container__square box-frame-container__square--top-right"></span>
@@ -160,9 +133,7 @@
                      <div class="box-frame box-frame--black">
                         <div class="box-frame box-frame--white">
                            <div class="box-frame box-frame--black">
-                              <div class="box-frame box-frame__content">
-                                 <img src="../assets/images/placeholder.jpg" alt="" class="monter-image__img">
-                              </div>
+                              <div id="monster-image-container" class="box-frame box-frame__content"></div>
                            </div>   
                         </div>
                      </div>
@@ -177,26 +148,26 @@
                         <div class="box-frame box-frame--white">
                            <div class="box-frame box-frame--black">
                               <div class="box-frame box-frame__content">
-                                 <h3 class="monster-desc__monster-name">Great Jaggi</h3>
+                                 <h3 id="monster-name" class="monster-desc__monster-name"></h3>
                                  <div class="double-line-separator"></div>
-                                 <p>content Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat accusamus praesentium error excepturi ipsam repellendus porro similique debitis rem illo nihil, at veniam eligendi sed, consectetur quas. Possimus, quis expedita!</p>
+                                 <p id="monster-desc"></p>
                                  <table class="monster-desc__table">
                                     <tbody>
                                        <tr class="monster-desc__row">
                                           <th scope="row" class="monster-desc__th">Type:</th>
-                                          <td class="monster-desc__td">Thing</td>
+                                          <td id="monster-type" class="monster-desc__td"></td>
                                        </tr>
                                        <tr class="monster-desc__row">
                                           <th scope="row" class="monster-desc__th">Element:</th>
-                                          <td class="monster-desc__td">none</td>
+                                          <td id="monster-element" class="monster-desc__td"></td>
                                        </tr>
                                        <tr class="monster-desc__row">
                                           <th scope="row" class="monster-desc__th">Weakness:</th>
-                                          <td class="monster-desc__td">none</td>
+                                          <td id="monster-weakness" class="monster-desc__td"></td>
                                        </tr>
                                        <tr class="monster-desc__row">
                                           <th scope="row" class="monster-desc__th">Habitat:</th>
-                                          <td class="monster-desc__td">Moga woods, tundra, volcano, sandly plains, flooded forest</td>
+                                          <td id="monster-habitat" class="monster-desc__td"></td>
                                        </tr>
                                     </tbody>
                                  </table>
