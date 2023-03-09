@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
    window.addEventListener('popstate', (e) => {
       e.preventDefault();
-      printCurrentLocation();
+      printCurrentLocation(false);
    });
    // this prevents monsters list to be hidden if the window resizes from mobile to desktop
    window.addEventListener('resize', () => {
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       monsterInfoList.classList.remove('monsters-info__list--hidden');
    });
 
-   function printCurrentLocation() {
+   function printCurrentLocation(pushEntry = true) {
       let currentLocation = location.hash.replace('#', '');
 
       if (currentLocation === '') {
@@ -69,12 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
          printLocationsPage();
       } else {
          // print monsters info
-         populateMonstersInfo(currentLocation);
+         populateMonstersInfo(currentLocation, pushEntry);
          printMonstersListPage();
       }
    }
 
-   async function populateMonstersInfo(location) {
+   async function populateMonstersInfo(location, pushEntry = true) {
       if (!cache.locations.includes(location)) {
          let monsters = await getMonstersDoc(location);
 
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
          console.log(cache);
       }
 
-      history.pushState(null, '', `#${location}`);
+      if (pushEntry) history.pushState(null, '', `#${location}`);
       generateMonstersList(
          cache.monsters.filter(monster => monster.habitat.includes(location))
       );
