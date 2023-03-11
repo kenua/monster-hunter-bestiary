@@ -5,17 +5,12 @@ import {
    updateMonsterDoc, 
    deleteMonsterDoc,
    listenToDocChanges,
-   getSingleMonsterDoc,
-   logout
+   getSingleMonsterDoc
 } from './firebase.js';
 import monsterItemMarkup from '../assets/markup/admin-monster-item.html';
 import { fadeIn, fadeOut } from './fadeFunctions.js';
 
 export default function addAdminFunctionality() {
-   setTimeout(() => {
-      logout();
-   }, 5000);
-
    const form = document.getElementById('create-monster-form');
    const imageErrorMessage = document.getElementById('monster-image-error-message');
    const nameErrorMessage = document.getElementById('monster-name-error-message');
