@@ -16,6 +16,9 @@
    &__list--hidden {
       margin-left: -100%;
    }
+   .info-container {
+      overflow: hidden;
+   }
 
    @include mixins.desktop-view {
       &__content {

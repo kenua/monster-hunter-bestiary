@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
    const monsterInfoList = document.getElementById('monster-info-list');
    const monstersInfoUl = document.getElementById('monsters-info-ul');
    const infoContainer = document.getElementById('info-container');
+   const infoContent = infoContainer.firstElementChild;
    const monsterImageContainer = document.getElementById('monster-image-container');
    const monsterName = document.getElementById('monster-name');
    const monsterDesc = document.getElementById('monster-desc');
@@ -154,13 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let id = button.value;
       let monsterObj = cache.monsters.filter(monster => monster.id === id)[0];
       let { name, desc, type, element, weakness, habitat, image: { filename, url } } = monsterObj;
-
-      [...monstersInfoUl.children].forEach(liNode => 
-         liNode.firstElementChild.className = 'monsters-info-button'
-      );
-      button.className = 'monsters-info-button monsters-info-button--selected';
-
-      if (window.innerWidth < 1280) {
+      let printDataIntoDom = () => {
          monsterImageContainer.innerHTML = `<img src="${url}" alt="${filename}" class="monter-image__img">`;
          monsterName.textContent = name;
          monsterDesc.textContent = desc;
@@ -168,17 +163,25 @@ document.addEventListener('DOMContentLoaded', () => {
          monsterElement.textContent = element;
          monsterWeakness.textContent = weakness.join(', ');
          monsterHabitat.textContent = habitat.join(', ');
+      };
+
+      [...monstersInfoUl.children].forEach(liNode => 
+         liNode.firstElementChild.className = 'monsters-info-button'
+      );
+      button.className = 'monsters-info-button monsters-info-button--selected';
+
+      if (window.innerWidth < 1280) {
          monsterInfoList.classList.add('monsters-info__list--hidden');
+      }
+
+      if (infoContainer.className.includes('hidden')) {
+         printDataIntoDom();
+         infoContainer.classList.remove('hidden');
+         fadeInFromBottom(infoContent);
       } else {
-         fadeOutFromTop(infoContainer, 0, () => {
-            monsterImageContainer.innerHTML = `<img src="${url}" alt="${filename}" class="monter-image__img">`;
-            monsterName.textContent = name;
-            monsterDesc.textContent = desc;
-            monsterType.textContent = type;
-            monsterElement.textContent = element;
-            monsterWeakness.textContent = weakness.join(', ');
-            monsterHabitat.textContent = habitat.join(', ');
-            fadeInFromBottom(infoContainer);
+         fadeOutFromTop(infoContent, 0, () => {
+            printDataIntoDom();
+            fadeInFromBottom(infoContent);
          });
       }
    }
@@ -193,6 +196,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
    function printLocationsPage() {
       fadeOutFromTop(monstersInfoContent, '', () => {
+         infoContainer.classList.add('hidden');
+         infoContent.style.opacity = '';
+         infoContent.style.transform = '';
          monstersInfo.classList.add('hidden');
          locations.classList.remove('hidden');
          fadeInFromBottom(locationsContent);
