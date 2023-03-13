@@ -187,6 +187,9 @@ document.addEventListener('DOMContentLoaded', () => {
    }
 
    function printMonstersListPage() {
+      // stop function if monstersInfoContent it's already visible
+      if (+monstersInfoContent.style.opacity) return;
+
       fadeOutFromTop(locationsContent, '', () => {
          locations.classList.add('hidden');
          monstersInfo.classList.remove('hidden');
